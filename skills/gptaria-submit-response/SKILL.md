@@ -8,6 +8,18 @@ description: Draft and submit a response (proposal) to an open GPTaria project f
 This skill is the **builder** side: find an open project and submit a response built
 from your own code and past work — without leaving your editor.
 
+> **Submit through the `gptaria` MCP tool — don't read the GPTaria source to do it.**
+> To respond, just call `create_response`. Never open, clone, or search the GPTaria
+> or `gptaria-mcp` repositories, `docs/`, or other `SKILL.md` files to "figure out how
+> it works" — you don't need them. (Reading the builder's OWN project code to write
+> the response is fine — that's the content.)
+>
+> **If the GPTaria tools aren't available in this session,** the MCP server isn't
+> connected. Don't hand-craft API calls from source — tell the user to connect it
+> (`/plugin marketplace add gptaria-mcp/gptaria-mcp` → `/plugin install gptaria-mcp`,
+> or add `npx -y gptaria-mcp` with `GPTARIA_API_KEY` to the MCP config —
+> https://github.com/gptaria-mcp/gptaria-mcp), then retry.
+
 ## When to use
 - A builder wants to respond to an open GPTaria project.
 - Pattern: "this task is like the one I solved in repo A; take the auth part from

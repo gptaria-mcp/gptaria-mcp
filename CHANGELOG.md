@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+- Skills now instruct the assistant to publish **only through the `gptaria` MCP
+  tools** and to never read a source repository / `docs/` to "figure out how it
+  works". Added a fallback: when the tools aren't available, tell the user to
+  connect the MCP server (plugin or `npx`) instead of inspecting files — so a
+  first-time user with only the plugin installed gets a clean path.
+
 ## [0.1.0] — 2026-07-13
 
 Initial public release.

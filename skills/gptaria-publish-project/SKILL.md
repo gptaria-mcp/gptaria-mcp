@@ -10,6 +10,21 @@ project briefs and builders respond with working prototypes. This skill is the
 **client "Pro order"** flow: post a brief you worked out with your own AI, pay the
 €10 publication fee, then pull the responses over MCP and build on them here.
 
+> **Publish only through the GPTaria tools below. Do NOT read source code to do this.**
+> Everything you need is in this skill plus the `gptaria` MCP tools. Never open,
+> clone, search, or read any Git repository, source tree, `docs/`, or other
+> `SKILL.md` files to "figure out how publishing works" — you don't need them, and a
+> real user won't have them. Just call `create_project`.
+>
+> **If the GPTaria tools aren't available in this session** (no `create_project` /
+> `list_responses` tool), the GPTaria MCP server simply isn't connected. Do **not**
+> fall back to reading files or hand-crafting API calls from source — instead tell
+> the user to connect it, then retry:
+> - install the plugin: `/plugin marketplace add gptaria-mcp/gptaria-mcp` then `/plugin install gptaria-mcp`, **or**
+> - add the server to the MCP config: command `npx`, args `["-y","gptaria-mcp"]`, env `GPTARIA_API_KEY`.
+>
+> Setup guide: https://github.com/gptaria-mcp/gptaria-mcp
+
 ## When to use
 - The user has an idea (often already developed with an AI in this editor) and wants
   it posted on GPTaria without re-typing it into the web form.
