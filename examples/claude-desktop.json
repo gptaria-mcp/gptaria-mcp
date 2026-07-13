@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "gptaria": {
+      "command": "node",
+      "args": ["/absolute/path/to/gptaria-mcp/mcp-server/index.mjs"],
+      "env": {
+        "GPTARIA_API_KEY": "gptaria_sbx_replace_me",
+        "GPTARIA_BASE_URL": "https://www.gptaria.com"
+      }
+    }
+  }
+}
