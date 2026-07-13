@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GPTaria platform
+    url: https://www.gptaria.com
+    about: Questions about the platform, account, or billing.
+  - name: Getting started
+    url: https://github.com/gptaria-mcp/gptaria-mcp/blob/main/docs/getting-started.md
+    about: Set up the MCP server and your first API key.
+  - name: Security vulnerability
+    url: https://github.com/gptaria-mcp/gptaria-mcp/security/advisories/new
+    about: Report privately — do not open a public issue.

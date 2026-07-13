@@ -1,0 +1,30 @@
+# Smithery configuration — https://smithery.ai/docs
+# Local stdio server. Verify against Smithery's current docs when you submit;
+# note the server's dependencies live in mcp-server/package.json.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - gptariaApiKey
+    properties:
+      gptariaApiKey:
+        type: string
+        title: GPTaria API key
+        description: From Settings → API keys. A gptaria_sbx_… key is safe for testing.
+      gptariaBaseUrl:
+        type: string
+        title: Base URL
+        default: https://www.gptaria.com
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['mcp-server/index.mjs'],
+      env: {
+        GPTARIA_API_KEY: config.gptariaApiKey,
+        GPTARIA_BASE_URL: config.gptariaBaseUrl || 'https://www.gptaria.com'
+      }
+    })
+exampleConfig:
+  gptariaApiKey: gptaria_sbx_xxxxxxxx
+  gptariaBaseUrl: https://www.gptaria.com

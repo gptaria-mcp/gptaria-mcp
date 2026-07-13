@@ -1,0 +1,49 @@
+name: Bug report
+description: Something in the MCP server, a skill, or the docs isn't working.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please don't include your API key or any secrets.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact tool call / request, or the curl command (redact keys).
+      placeholder: |
+        1. Called `list_projects` …
+        2. …
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: MCP client
+      options:
+        - Claude Code
+        - Claude Desktop
+        - Cursor
+        - Windsurf
+        - Direct REST (no MCP)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: key-type
+    attributes:
+      label: Key type
+      description: sandbox or live? (never paste the key itself)
+      placeholder: sandbox
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: OS, Node version (`node -v`), server version.

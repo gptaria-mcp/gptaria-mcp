@@ -6,6 +6,7 @@
   "bin": {
     "gptaria-mcp": "index.mjs"
   },
+  "mcpName": "io.github.gptaria-mcp/gptaria-mcp",
   "scripts": {
     "start": "node index.mjs"
   },
@@ -14,10 +15,28 @@
     "model-context-protocol",
     "gptaria",
     "claude",
+    "claude-code",
     "cursor",
     "ai"
   ],
+  "author": "GPTaria (https://www.gptaria.com)",
   "license": "MIT",
+  "homepage": "https://github.com/gptaria-mcp/gptaria-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gptaria-mcp/gptaria-mcp.git",
+    "directory": "mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/gptaria-mcp/gptaria-mcp/issues"
+  },
+  "files": [
+    "index.mjs",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18"
   },

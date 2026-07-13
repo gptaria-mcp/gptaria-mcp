@@ -1,0 +1,17 @@
+{
+  "name": "gptaria",
+  "owner": {
+    "name": "GPTaria",
+    "url": "https://github.com/gptaria-mcp"
+  },
+  "plugins": [
+    {
+      "name": "gptaria-mcp",
+      "source": "./",
+      "description": "GPTaria MCP server + Agent Skills: publish a project, respond to one, and publish a case.",
+      "version": "0.1.0",
+      "category": "development",
+      "keywords": ["gptaria", "mcp", "ai"]
+    }
+  ]
+}

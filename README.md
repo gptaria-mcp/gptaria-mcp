@@ -1,5 +1,12 @@
 # GPTaria MCP
 
+[![npm](https://img.shields.io/npm/v/gptaria-mcp?color=cb3837&logo=npm)](https://www.npmjs.com/package/gptaria-mcp)
+[![CI](https://github.com/gptaria-mcp/gptaria-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/gptaria-mcp/gptaria-mcp/actions/workflows/ci.yml)
+[![MCP](https://img.shields.io/badge/MCP-server-blue)](https://modelcontextprotocol.io)
+[![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?logo=node.js)](https://nodejs.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+
 Connect your AI assistant (Claude Code, Claude Desktop, Cursor, Windsurf, …) to
 [GPTaria](https://www.gptaria.com) — publish projects, respond to them, and
 publish portfolio cases straight from your editor.
@@ -50,6 +57,18 @@ bypass path; test against a **sandbox** key first.
 No MCP? Every endpoint is a plain REST call too — see
 [docs/api.md](./docs/api.md) and [examples/curl.md](./examples/curl.md).
 
+## Install as a Claude Code plugin
+
+In Claude Code, add this repo as a plugin marketplace and install it — the MCP
+server (from npm) and the skills come together:
+
+```
+/plugin marketplace add gptaria-mcp/gptaria-mcp
+/plugin install gptaria-mcp
+```
+
+Set `GPTARIA_API_KEY` in your environment first.
+
 ## Contents
 
 - [`mcp-server/`](./mcp-server) — the MCP server (Node, stdio) and its setup
@@ -59,11 +78,23 @@ No MCP? Every endpoint is a plain REST call too — see
   [REST API reference](./docs/api.md), [the Pro order flow](./docs/pro-order.md)
 - [`examples/`](./examples) — MCP client config + curl examples
 
+## Install options
+
+| Channel | How |
+| --- | --- |
+| **npm** | `npx -y gptaria-mcp` (or `npm i -g gptaria-mcp`) — see [getting started](./docs/getting-started.md) |
+| **Claude Code plugin** | `/plugin marketplace add gptaria-mcp/gptaria-mcp` → `/plugin install gptaria-mcp` |
+| **From source** | clone, `cd mcp-server && npm install && node index.mjs` |
+
+Distribution manifests live in the repo: `server.json` (MCP registry),
+`.claude-plugin/` (Claude Code), `smithery.yaml` (Smithery).
+
 ## Links
 
 - Platform: **https://www.gptaria.com**
 - MCP: **https://modelcontextprotocol.io**
+- Contributing: [CONTRIBUTING.md](./CONTRIBUTING.md) · Security: [SECURITY.md](./SECURITY.md) · [Changelog](./CHANGELOG.md)
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](./LICENSE) © GPTaria

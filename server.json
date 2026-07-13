@@ -1,0 +1,33 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gptaria-mcp/gptaria-mcp",
+  "title": "GPTaria MCP",
+  "description": "Publish projects, respond to them, and publish portfolio cases on GPTaria from your AI assistant.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/gptaria-mcp/gptaria-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "gptaria-mcp",
+      "version": "0.1.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "GPTARIA_API_KEY",
+          "description": "Your GPTaria API key (Settings → API keys). A gptaria_sbx_… key is safe for testing.",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "GPTARIA_BASE_URL",
+          "description": "Override the platform base URL.",
+          "isRequired": false,
+          "default": "https://www.gptaria.com"
+        }
+      ]
+    }
+  ]
+}
