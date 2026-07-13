@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install MCP server dependencies
+        working-directory: mcp-server
+        run: npm install
+
+      - name: Syntax-check the MCP server
+        run: node --check mcp-server/index.mjs
+
+      - name: Validate JSON + skill frontmatter
+        run: node scripts/validate.mjs
