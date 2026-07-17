@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- Project clarifications: `list_project_comments` and `create_project_comment`
+  tools (and `GET`/`POST /api/v1/projects/:id/comments`). A client can add a
+  public clarification to their own brief — a logo, design wishes, a reference —
+  that every viewer sees, straight from their AI. Owner-only write; public read.
+
 ### Changed
 
 - Skills now instruct the assistant to publish **only through the `gptaria` MCP

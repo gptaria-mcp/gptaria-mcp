@@ -31,6 +31,8 @@ REST API  →  MCP server  →  Agent skills
 | `create_project` | clients | Publish a project brief via a Pro order (€10) |
 | `create_response` | builders | Submit a response (proposal) to a project |
 | `create_case` | builders | Publish a portfolio case (draft by default) |
+| `list_project_comments` | anyone | List a project's client clarifications |
+| `create_project_comment` | clients | Add a public clarification to your own project |
 
 Every tool enforces the **same rules as the website** — account role, active
 access pass, the Super-Expert window, and payment where required. There is no

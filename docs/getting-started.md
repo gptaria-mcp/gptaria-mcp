@@ -50,7 +50,7 @@ Add the server to your MCP client config, using the **absolute path** to
 - **Cursor** — Settings → MCP → Add Server
 - **Windsurf** — `mcp_config.json`
 
-Restart the client. You should now see the five `gptaria` tools.
+Restart the client. You should now see the `gptaria` tools.
 
 ## 4. (Optional) install the skills
 

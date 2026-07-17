@@ -109,6 +109,39 @@ Body:
 { "ok": true, "id": "uuid", "sandbox": false }
 ```
 
+## `GET /projects/:id/comments`
+
+List a project's clarifications (owner-posted updates to the brief). Scope:
+`projects:read`. Public — anyone can read them.
+
+```json
+{ "sandbox": false,
+  "project": { "id": "uuid", "slug": "…", "title": "…" },
+  "data": [
+    { "id": "uuid", "author": "@handle", "body": "…", "created_at": "…" }
+  ] }
+```
+
+## `POST /projects/:id/comments`
+
+Add a clarification to a project. Scope: `projects:write`. **Owner only** — the
+caller must be the project's client (starter); the project must be public and
+open (`brewing`). Use this when, after publishing, the brief needs more — a
+logo, design wishes, a reference — so every builder sees the update.
+
+Body:
+
+| field | type | notes |
+| --- | --- | --- |
+| `body` | string | 1–4000 chars |
+
+```json
+{ "ok": true, "id": "uuid", "sandbox": false }
+```
+
+Errors specific to this endpoint: `403 not_owner` (not your project),
+`404 not_found` (no open public project with that id).
+
 ## `POST /cases`
 
 Publish a portfolio case (dev.to-style Markdown). Scope: `cases:write`.

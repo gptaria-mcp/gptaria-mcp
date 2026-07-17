@@ -130,6 +130,34 @@ server.registerTool(
   async (body) => ok(await api('/cases', { method: 'POST', body: JSON.stringify(body) })),
 );
 
+server.registerTool(
+  'list_project_comments',
+  {
+    title: 'List a project’s clarifications',
+    description:
+      'List the client’s clarifications on a project (updates the owner added to the brief — a logo, design wishes, a reference). Public read.',
+    inputSchema: {
+      project_id: z.string().describe('Project (storm) UUID from list_projects'),
+    },
+  },
+  async ({ project_id }) => ok(await api(`/projects/${project_id}/comments`)),
+);
+
+server.registerTool(
+  'create_project_comment',
+  {
+    title: 'Add a clarification to your project',
+    description:
+      'As the project’s client, add a public clarification to your own brief (a logo, design wishes, a reference) that every viewer sees — so builders respond against the latest requirements. Owner-only (the caller must be the project’s client). A sandbox key validates without persisting.',
+    inputSchema: {
+      project_id: z.string().describe('Your project (storm) UUID'),
+      body: z.string().min(1).max(4000).describe('The clarification text'),
+    },
+  },
+  async ({ project_id, ...body }) =>
+    ok(await api(`/projects/${project_id}/comments`, { method: 'POST', body: JSON.stringify(body) })),
+);
+
 const transport = new StdioServerTransport();
 await server.connect(transport);
 console.error(`GPTaria MCP server ready → ${BASE_URL}`);

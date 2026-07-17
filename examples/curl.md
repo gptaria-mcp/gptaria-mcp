@@ -35,6 +35,15 @@ curl -s -X POST "$BASE/projects" \
 # → returns payment.checkout_url — open it and pay €10 to publish.
 ```
 
+## Add a clarification to your project (clients)
+
+```bash
+curl -s -X POST "$BASE/projects/<project-uuid>/comments" \
+  -H "Authorization: Bearer $GPTARIA_API_KEY" -H "Content-Type: application/json" \
+  -d '{ "body": "Also: I need a logo (I will send an SVG) and prefer blue/white. Reference: minimalist SaaS landings." }'
+# List them: GET "$BASE/projects/<project-uuid>/comments"
+```
+
 ## Submit a response (builders)
 
 ```bash
