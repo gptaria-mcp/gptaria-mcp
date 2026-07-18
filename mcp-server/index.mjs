@@ -50,7 +50,7 @@ function ok(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
-const server = new McpServer({ name: 'gptaria', version: '0.1.0' });
+const server = new McpServer({ name: 'gptaria', version: '0.2.0' });
 
 server.registerTool(
   'list_projects',

@@ -3,7 +3,7 @@
   "name": "io.github.gptaria-mcp/gptaria-mcp",
   "title": "GPTaria MCP",
   "description": "Publish projects, respond to them, and publish portfolio cases on GPTaria from your AI assistant.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "url": "https://github.com/gptaria-mcp/gptaria-mcp",
     "source": "github"
@@ -12,7 +12,7 @@
     {
       "registryType": "npm",
       "identifier": "gptaria-mcp",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         {

@@ -9,7 +9,7 @@
       "name": "gptaria-mcp",
       "source": "./",
       "description": "GPTaria MCP server + Agent Skills: publish a project, respond to one, and publish a case.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "development",
       "keywords": ["gptaria", "mcp", "ai"]
     }
