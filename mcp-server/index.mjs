@@ -158,6 +158,74 @@ server.registerTool(
     ok(await api(`/projects/${project_id}/comments`, { method: 'POST', body: JSON.stringify(body) })),
 );
 
+server.registerTool(
+  'generate_case_summary',
+  {
+    title: 'Generate a case summary block',
+    description:
+      "Generate the AI summary block for one of your cases AFTER you've written it — a grounded ≤300-char 'what this project is' block (plus key facts + entities) built only from the case body. It's moderated, saved on the case (shown on your public profile and as the page's description), and lets the page get indexed once the case is verified. Uses your AI tokens. A sandbox key generates without saving.",
+    inputSchema: {
+      case_id: z.string().describe('Case UUID (from create_case / your cases)'),
+      author_theses: z
+        .string()
+        .max(1000)
+        .optional()
+        .describe('Optional: what to emphasize (grounds the model, invents nothing)'),
+    },
+  },
+  async ({ case_id, ...body }) =>
+    ok(await api(`/cases/${case_id}/summary`, { method: 'POST', body: JSON.stringify(body) })),
+);
+
+server.registerTool(
+  'get_profile',
+  {
+    title: 'Get your profile',
+    description:
+      'Read your own GPTaria public profile (bio, display name, GitHub, working languages, public contacts, profile URL). Use it before update_profile to see what is already set.',
+    inputSchema: {},
+  },
+  async () => ok(await api('/me')),
+);
+
+server.registerTool(
+  'update_profile',
+  {
+    title: 'Update your profile',
+    description:
+      'Fill out / edit your own GPTaria public profile so people can see who you are and how to reach you. Partial update — pass only the fields you want to change; an empty string clears a field (except handle). Write `bio` in ONE language: the platform moderates it and auto-translates it into every other language (this uses your AI tokens). Avatar photo is set on the website. A sandbox key validates without persisting.',
+    inputSchema: {
+      display_name: z.string().max(80).optional().describe('Your public display name'),
+      handle: z
+        .string()
+        .regex(/^[a-z0-9_]{3,20}$/)
+        .optional()
+        .describe('URL handle: 3–20 chars, lowercase letters, digits, underscore'),
+      bio: z
+        .string()
+        .max(500)
+        .optional()
+        .describe('Short profile description (≤500 chars), in ONE language — auto-translated'),
+      bio_source_language: z
+        .enum(['en', 'ru', 'uk', 'el'])
+        .optional()
+        .describe('Language the bio is written in (defaults to your account language)'),
+      github_handle: z.string().max(60).optional().describe('GitHub username (with or without @)'),
+      working_languages: z
+        .array(z.string().regex(/^[a-z]{2}$/))
+        .max(8)
+        .optional()
+        .describe("Spoken languages as 2-letter codes, e.g. ['en','uk']"),
+      country_code: z.string().length(2).optional().describe('2-letter ISO country code, e.g. UA'),
+      contact_telegram: z.string().max(100).optional().describe('Public Telegram handle'),
+      contact_x: z.string().max(100).optional().describe('Public X (Twitter) handle'),
+      contact_linkedin: z.string().max(200).optional().describe('Public LinkedIn handle or URL'),
+      contact_email_public: z.string().email().max(200).optional().describe('Public contact email'),
+    },
+  },
+  async (body) => ok(await api('/me', { method: 'PATCH', body: JSON.stringify(body) })),
+);
+
 const transport = new StdioServerTransport();
 await server.connect(transport);
 console.error(`GPTaria MCP server ready → ${BASE_URL}`);

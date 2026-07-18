@@ -33,6 +33,8 @@ REST API  →  MCP server  →  Agent skills
 | `create_case` | builders | Publish a portfolio case (draft by default) |
 | `list_project_comments` | anyone | List a project's client clarifications |
 | `create_project_comment` | clients | Add a public clarification to your own project |
+| `generate_case_summary` | builders | Generate a case's AI summary block from your editor |
+| `get_profile` / `update_profile` | anyone | Read / edit your own public profile |
 
 Every tool enforces the **same rules as the website** — account role, active
 access pass, the Super-Expert window, and payment where required. There is no

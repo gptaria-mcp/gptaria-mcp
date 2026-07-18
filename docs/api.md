@@ -16,7 +16,7 @@ Authorization: Bearer gptaria_live_xxx
   run every validation and rule check but persist nothing (writes return
   `dry_run`) and never charge.
 - Keys carry scopes: `projects:read`, `projects:write`, `responses:write`,
-  `cases:write`.
+  `cases:write`, `profile:read`, `profile:write`.
 
 ## Errors
 
@@ -159,6 +159,57 @@ Body:
 
 ```json
 { "ok": true, "id": "uuid", "slug": "…", "sandbox": false }
+```
+
+## `POST /cases/:id/summary`
+
+Generate a case's AI summary block from its body. Scope: `cases:write`.
+Owner-only; the ≤300-char block is moderated, saved on the case, and used as the
+page description. Metered (AI-Pack budget → `402 need_ai_budget`).
+
+Body:
+
+| field | type | notes |
+| --- | --- | --- |
+| `author_theses` | string | optional, ≤1000 — what to emphasize (grounds the model) |
+
+```json
+{ "ok": true, "id": "uuid", "sandbox": false }
+```
+
+## `GET /me`
+
+Read your own public profile. Scope: `profile:read`.
+
+```json
+{ "sandbox": false, "data": {
+  "handle": "…", "display_name": "…", "bio": "…", "github_handle": "…",
+  "working_languages": ["en","uk"], "country_code": "UA",
+  "contact_telegram": "…", "profile_url": "https://www.gptaria.com/builder/…" } }
+```
+
+## `PATCH /me`
+
+Edit your own public profile. Scope: `profile:write`. Partial update — pass only
+the fields you change; `""` clears a field (except `handle`). `bio` is written in
+ONE language, moderated, then auto-translated into every locale (metered) — a
+rejected bio returns `422 bio_rejected`.
+
+Body (all optional):
+
+| field | type | notes |
+| --- | --- | --- |
+| `display_name` | string | ≤80 |
+| `handle` | string | `^[a-z0-9_]{3,20}$` (reserved-handle gate applies) |
+| `bio` | string | ≤500, one language |
+| `bio_source_language` | `en\|ru\|uk\|el` | defaults to your account language |
+| `github_handle` | string | ≤60 |
+| `working_languages` | string[] | 2-letter codes, ≤8 |
+| `country_code` | string | 2-letter ISO |
+| `contact_telegram` / `contact_x` / `contact_linkedin` / `contact_email_public` | string | public contacts |
+
+```json
+{ "ok": true, "sandbox": false, "data": { "handle": "…", "bio": "…", … } }
 ```
 
 ---

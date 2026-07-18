@@ -12,6 +12,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   tools (and `GET`/`POST /api/v1/projects/:id/comments`). A client can add a
   public clarification to their own brief — a logo, design wishes, a reference —
   that every viewer sees, straight from their AI. Owner-only write; public read.
+- Ported the profile + case-summary tools so the public server matches the full
+  surface: `generate_case_summary`, `get_profile`, `update_profile` (and the
+  `POST /api/v1/cases/:id/summary`, `GET`/`PATCH /api/v1/me` endpoints + the
+  `profile:read`/`profile:write` scopes). The server now exposes all 10 tools.
 
 ### Changed
 
