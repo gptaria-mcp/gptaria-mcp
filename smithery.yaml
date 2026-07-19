@@ -18,8 +18,8 @@ startCommand:
         default: https://www.gptaria.com
   commandFunction: |-
     (config) => ({
-      command: 'node',
-      args: ['mcp-server/index.mjs'],
+      command: 'npx',
+      args: ['-y', 'gptaria-mcp'],
       env: {
         GPTARIA_API_KEY: config.gptariaApiKey,
         GPTARIA_BASE_URL: config.gptariaBaseUrl || 'https://www.gptaria.com'
