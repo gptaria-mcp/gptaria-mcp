@@ -1,6 +1,6 @@
 {
   "name": "gptaria-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "GPTaria MCP server — post a project brief, respond with a prototype, and publish portfolio cases on GPTaria from Claude Code, Cursor, Claude Desktop or Windsurf.",
   "type": "module",
   "bin": {
