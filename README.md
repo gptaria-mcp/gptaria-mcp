@@ -7,9 +7,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
-Connect your AI assistant (Claude Code, Claude Desktop, Cursor, Windsurf, …) to
-[GPTaria](https://www.gptaria.com) — publish projects, respond to them, and
-publish portfolio cases straight from your editor.
+**GPTaria MCP** connects your AI assistant — **Claude Code, Claude Desktop,
+Cursor, Windsurf** — to [GPTaria](https://www.gptaria.com): **post a project
+brief, respond with a working prototype, and publish portfolio cases straight
+from your editor**, using the `create_project`, `create_response` and
+`create_case` tools. An [MCP](https://modelcontextprotocol.io) (Model Context
+Protocol) server for the GPTaria REST API — publish and work on projects without
+leaving your AI.
 
 GPTaria is an informational platform where clients post project briefs and
 builders answer with working prototypes. This repo is the **developer surface**:

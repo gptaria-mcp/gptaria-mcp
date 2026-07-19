@@ -1,7 +1,7 @@
 {
   "name": "gptaria-mcp",
   "version": "0.2.0",
-  "description": "MCP server exposing the GPTaria REST API v1 (list/create projects, responses & cases) to AI assistants.",
+  "description": "GPTaria MCP server — post a project brief, respond with a prototype, and publish portfolio cases on GPTaria from Claude Code, Cursor, Claude Desktop or Windsurf.",
   "type": "module",
   "bin": {
     "gptaria-mcp": "index.mjs"
@@ -13,11 +13,16 @@
   "keywords": [
     "mcp",
     "model-context-protocol",
+    "mcp-server",
     "gptaria",
     "claude",
     "claude-code",
+    "claude-desktop",
     "cursor",
-    "ai"
+    "windsurf",
+    "ai",
+    "ai-agents",
+    "developer-tools"
   ],
   "author": "GPTaria (https://www.gptaria.com)",
   "license": "MIT",

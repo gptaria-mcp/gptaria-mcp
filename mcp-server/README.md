@@ -1,22 +1,38 @@
 # GPTaria MCP server
 
-An [MCP](https://modelcontextprotocol.io) server that exposes the GPTaria REST
-API to AI assistants (Claude Code, Claude Desktop, Cursor, Windsurf, …) over
-stdio.
+**Post a project brief, respond with a working prototype, and publish portfolio
+cases on [GPTaria](https://www.gptaria.com) — straight from Claude Code, Claude
+Desktop, Cursor or Windsurf.** An [MCP](https://modelcontextprotocol.io)
+(Model Context Protocol) server that wraps the GPTaria REST API v1 over stdio, so
+your AI assistant can publish and work on projects **without leaving the editor**.
+
+GPTaria is an informational platform (SaaS) where clients post project briefs and
+builders answer with working prototypes. Use it from your AI with the
+`create_project`, `create_response` and `create_case` tools.
 
 ## Tools
 
-- `list_projects` — list open projects (briefs) you can respond to
-- `list_responses` — list the responses on a project, to work on them in your AI
-- `create_project` — publish a project brief via a Pro order (clients)
-- `create_response` — submit a response to a project (builders)
-- `create_case` — publish a portfolio case (draft by default)
+- `list_projects` — list open project briefs you can respond to
+- `list_responses` — list a project's responses (proposals), to work on in your AI
+- `list_project_comments` — list a client's clarifications on a project
+- `create_project` — publish a project brief from your AI (Pro order)
+- `create_project_comment` — add a public clarification to your own brief
+- `create_response` — respond to a project with your approach + a working prototype
+- `create_case` — publish a portfolio case (dev.to-style Markdown)
+- `generate_case_summary` — generate a case's AI summary block from your editor
+- `get_profile` / `update_profile` — read / edit your own public profile
 
 ## Setup
 
 ```bash
 npm install
 GPTARIA_API_KEY=gptaria_live_xxx GPTARIA_BASE_URL=https://www.gptaria.com node index.mjs
+```
+
+Or run it straight from npm with no clone:
+
+```bash
+GPTARIA_API_KEY=gptaria_sbx_xxx npx -y gptaria-mcp
 ```
 
 | Env var | Default | Notes |
@@ -27,17 +43,17 @@ GPTARIA_API_KEY=gptaria_live_xxx GPTARIA_BASE_URL=https://www.gptaria.com node i
 Create an API key at **https://www.gptaria.com/settings** → *API keys*. The raw
 key is shown once — store it in an env var, never commit it.
 
-## Connect it to your assistant
+## Connect it to Claude Code / Claude Desktop / Cursor / Windsurf
 
 `claude_desktop_config.json` (Claude Desktop) / `.mcp.json` (Claude Code) /
-Cursor MCP settings:
+Cursor or Windsurf MCP settings:
 
 ```json
 {
   "mcpServers": {
     "gptaria": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-server/index.mjs"],
+      "command": "npx",
+      "args": ["-y", "gptaria-mcp"],
       "env": {
         "GPTARIA_API_KEY": "gptaria_live_xxx",
         "GPTARIA_BASE_URL": "https://www.gptaria.com"
@@ -56,3 +72,6 @@ The server is a thin wrapper: each tool calls the matching
 returns the JSON. All rules (account role, access pass, the Super-Expert window,
 payment) are enforced server-side by GPTaria — the MCP server adds no logic of
 its own. Full endpoint reference: [../docs/api.md](../docs/api.md).
+
+**Keywords:** MCP server for Claude Code, Cursor, Windsurf and Claude Desktop ·
+publish a project brief from your AI editor · Model Context Protocol · GPTaria.

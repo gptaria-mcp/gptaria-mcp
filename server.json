@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.gptaria-mcp/gptaria-mcp",
   "title": "GPTaria MCP",
-  "description": "Publish projects, respond to them, and publish portfolio cases on GPTaria from your AI assistant.",
+  "description": "GPTaria MCP server — post a project brief, respond with a working prototype, and publish portfolio cases on GPTaria from Claude Code, Cursor, Claude Desktop or Windsurf.",
   "version": "0.2.0",
   "repository": {
     "url": "https://github.com/gptaria-mcp/gptaria-mcp",
