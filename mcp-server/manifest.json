@@ -5,18 +5,34 @@
   "version": "0.2.1",
   "description": "Post a project brief & publish cases on GPTaria from Claude Code, Cursor or Windsurf.",
   "long_description": "MCP server for GPTaria — an informational platform (SaaS) where clients post project briefs and builders answer with working prototypes. From your AI assistant (Claude Code, Claude Desktop, Cursor, Windsurf) you can publish a project brief, add clarifications, respond with a prototype, publish portfolio cases, and edit your public profile. A thin wrapper over the GPTaria REST API v1; all rules are enforced server-side. Use a sandbox key (gptaria_sbx_…) to test without persisting.",
-  "author": { "name": "GPTaria", "url": "https://www.gptaria.com" },
+  "author": {
+    "name": "GPTaria",
+    "url": "https://www.gptaria.com"
+  },
   "homepage": "https://github.com/gptaria-mcp/gptaria-mcp",
   "documentation": "https://github.com/gptaria-mcp/gptaria-mcp#readme",
-  "repository": { "type": "git", "url": "https://github.com/gptaria-mcp/gptaria-mcp" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gptaria-mcp/gptaria-mcp"
+  },
   "license": "MIT",
-  "keywords": ["mcp", "gptaria", "claude-code", "claude-desktop", "cursor", "windsurf", "ai-agents"],
+  "keywords": [
+    "mcp",
+    "gptaria",
+    "claude-code",
+    "claude-desktop",
+    "cursor",
+    "windsurf",
+    "ai-agents"
+  ],
   "server": {
     "type": "node",
     "entry_point": "index.mjs",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/index.mjs"],
+      "args": [
+        "${__dirname}/index.mjs"
+      ],
       "env": {
         "GPTARIA_API_KEY": "${user_config.gptaria_api_key}",
         "GPTARIA_BASE_URL": "${user_config.gptaria_base_url}"
@@ -38,17 +54,5 @@
       "default": "https://www.gptaria.com",
       "required": false
     }
-  },
-  "tools": [
-    { "name": "list_projects", "description": "List open project briefs you can respond to" },
-    { "name": "list_responses", "description": "List a project's responses (proposals)" },
-    { "name": "list_project_comments", "description": "List a client's clarifications on a project" },
-    { "name": "create_project", "description": "Publish a project brief from your AI (Pro order)" },
-    { "name": "create_project_comment", "description": "Add a public clarification to your own brief" },
-    { "name": "create_response", "description": "Respond to a project with your approach + a prototype" },
-    { "name": "create_case", "description": "Publish a portfolio case (dev.to-style Markdown)" },
-    { "name": "generate_case_summary", "description": "Generate a case's AI summary block" },
-    { "name": "get_profile", "description": "Read your own public profile" },
-    { "name": "update_profile", "description": "Edit your own public profile" }
-  ]
+  }
 }
