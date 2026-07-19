@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/gptaria-mcp?color=cb3837&logo=npm)](https://www.npmjs.com/package/gptaria-mcp)
 [![CI](https://github.com/gptaria-mcp/gptaria-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/gptaria-mcp/gptaria-mcp/actions/workflows/ci.yml)
 [![MCP](https://img.shields.io/badge/MCP-server-blue)](https://modelcontextprotocol.io)
+[![smithery](https://smithery.ai/badge/git-ttt7/gptaria-mcp)](https://smithery.ai/servers/git-ttt7/gptaria-mcp)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-brightgreen?logo=node.js)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
