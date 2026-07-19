@@ -19,12 +19,23 @@ import { z } from 'zod';
 const API_KEY = process.env.GPTARIA_API_KEY;
 const BASE_URL = (process.env.GPTARIA_BASE_URL || 'https://www.gptaria.com').replace(/\/$/, '');
 
+// Don't exit when the key is missing — the server still starts and exposes
+// `tools/list` so registries/scanners (Smithery, etc.) can enumerate the tools.
+// A tool CALL without a key fails with a clear, actionable message.
 if (!API_KEY) {
-  console.error('Set GPTARIA_API_KEY (a gptaria_live_… or gptaria_sbx_… key).');
-  process.exit(1);
+  console.error(
+    'GPTARIA_API_KEY is not set — tools are listed but calls will fail. ' +
+      'Get a key at https://www.gptaria.com/settings → API keys.',
+  );
 }
 
 async function api(path, init = {}) {
+  if (!API_KEY) {
+    throw new Error(
+      'Set GPTARIA_API_KEY (a gptaria_live_… or gptaria_sbx_… key) to use this tool — ' +
+        'get one at https://www.gptaria.com/settings → API keys.',
+    );
+  }
   const res = await fetch(`${BASE_URL}/api/v1${path}`, {
     ...init,
     headers: {
@@ -50,7 +61,16 @@ function ok(data) {
   return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
 }
 
-const server = new McpServer({ name: 'gptaria', version: '0.2.1' });
+const server = new McpServer(
+  { name: 'gptaria', title: 'GPTaria MCP', version: '0.2.2' },
+  {
+    instructions:
+      'Post a project brief, respond with a working prototype, and publish portfolio ' +
+      'cases on GPTaria (https://www.gptaria.com) from your AI editor. Tools cover ' +
+      'listing/creating projects, responses, clarifications, cases, and your profile. ' +
+      'Set GPTARIA_API_KEY (Settings → API keys); a gptaria_sbx_… key is safe for testing.',
+  },
+);
 
 server.registerTool(
   'list_projects',

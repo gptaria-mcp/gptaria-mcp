@@ -3,7 +3,7 @@
   "name": "io.github.gptaria-mcp/gptaria-mcp",
   "title": "GPTaria MCP",
   "description": "Post a project brief & publish cases on GPTaria from Claude Code, Cursor or Windsurf.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "repository": {
     "url": "https://github.com/gptaria-mcp/gptaria-mcp",
     "source": "github"
@@ -12,7 +12,7 @@
     {
       "registryType": "npm",
       "identifier": "gptaria-mcp",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         {

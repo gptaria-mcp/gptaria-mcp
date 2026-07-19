@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "gptaria-mcp",
   "display_name": "GPTaria MCP",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Post a project brief & publish cases on GPTaria from Claude Code, Cursor or Windsurf.",
   "long_description": "MCP server for GPTaria — an informational platform (SaaS) where clients post project briefs and builders answer with working prototypes. From your AI assistant (Claude Code, Claude Desktop, Cursor, Windsurf) you can publish a project brief, add clarifications, respond with a prototype, publish portfolio cases, and edit your public profile. A thin wrapper over the GPTaria REST API v1; all rules are enforced server-side. Use a sandbox key (gptaria_sbx_…) to test without persisting.",
   "author": {

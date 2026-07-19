@@ -6,6 +6,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.2] — 2026-07-19
+
+### Changed
+
+- Server now starts without GPTARIA_API_KEY and still exposes tools/list (so registries/scanners like Smithery can enumerate the 10 tools); a tool CALL without a key returns a clear error. Added server title + instructions (description).
+
 ## [0.2.1] — 2026-07-19
 
 ### Changed
